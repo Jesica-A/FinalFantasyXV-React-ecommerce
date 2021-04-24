@@ -18,4 +18,4 @@ function Items (prop) {
         </div>
 }
 
-export default Items;
+export default Items

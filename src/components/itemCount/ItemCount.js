@@ -25,4 +25,4 @@ import '../ItemListContainer/ItemListContainer';
                 </div>
     }
 
-export default Contador;
+export default Contador

@@ -7,4 +7,4 @@ function cart () {
     return <li><a href='/'><FontAwesomeIcon icon={faShoppingCart} /></a></li>
 }
 
-export default cart;
+export default cart
