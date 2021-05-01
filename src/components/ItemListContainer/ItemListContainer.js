@@ -3,22 +3,19 @@ import ItemList from '../itemList/ItemList';
 
 let productos = [
     { 
-        id: 'AAA000', 
         title: 'Remera Real Noctis', 
         price: '1200', 
-        pictureUrl: '../img/productos/T-shirt_Real_Noctis' 
+        pictureUrl: '/img/T-shirt_Real_Noctis.jpg'
     }, 
     { 
-        id: 'BBB000', 
         title: 'Barbijo Chocobo', 
         price: '350', 
-        pictureUrl: 'insertarIMAGEN' 
+        pictureUrl: '/img/Barbijo_Chocobos.jpg' 
     },
     { 
-        id: 'CCC000', 
         title: 'Poster Aranea', 
         price: '700', 
-        pictureUrl: 'insertarIMAGEN' 
+        pictureUrl: '/img/Poster_Aranea.jpg' 
     },
 ];
 
@@ -33,8 +30,9 @@ function List ({title}) {
     useEffect(() => {
             promise.then(x => {
         setTimeout(() => {
-            setItem(x)
-        })
+            setItem(x);
+        }, 2000);
+
     });
     }, []);
 
