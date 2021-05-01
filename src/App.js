@@ -6,12 +6,23 @@ import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <ItemListContainer title='CATALOGO'/>
-      <ItemDetailContainer title='Detalles'/>
-    </div>
-  );
+    <BrowserRouter>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route exact path='/'>
+            <ItemListContainer title='CATALOGO'/>
+          </Route>
+          <Route exact path='/item/:id'>
+            <ItemDetailContainer title='Detalles'/>
+          </Route>
+          <Route exact path='/cart'>
+            <p>Carrito de compras</p>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;

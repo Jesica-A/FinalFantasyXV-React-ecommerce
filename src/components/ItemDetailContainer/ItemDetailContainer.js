@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom';
 
 let productos = [
     { 
-        id: 'AAA000', 
+        id: '1', 
         title: 'Remera Real Noctis', 
         price: '1200', 
         pictureUrl: '/img/T-shirt_Real_Noctis.jpg',
         description: 'Remera 100% Algodon. Unico color disponible. Talles: del S al XXL'
     }, 
     { 
-        id: 'BBB000', 
+        id: '2', 
         title: 'Barbijo Chocobo', 
         price: '350', 
         pictureUrl: '/img/Barbijo_Chocobos.jpg',
         description: 'Barbijo de Simil Neopren reversible. Colores disponibles: Negro, Rosa, Blanco, Gris. Talles: Adulto y Niño'
     },
     { 
-        id: 'CCC000', 
+        id: '3', 
         title: 'Poster Aranea', 
         price: '700', 
         pictureUrl: '/img/Poster_Aranea.jpg', 
@@ -31,18 +32,20 @@ const getItem = new Promise ((res) => {
 
     function ItemDetailContainer ({title}) {
         const [producto, setProducto] = useState([]);
+        const {id} = useParams();
 
         useEffect(() => {
             getItem.then(x => {
                 setTimeout(() => {
-                    setProducto(x);
+                    let itemId = x.filter(x => x.id == id);
+                    setProducto(itemId[0]);
                 }, 2000)
             });
         }, [])
 
         return <>
         <h1>{title}</h1>
-        <ItemDetail prop = {producto}/>
+        <ItemDetail item = {producto}/>
         </>
     }
 
