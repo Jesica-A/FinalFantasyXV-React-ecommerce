@@ -1,5 +1,7 @@
 Proyecto hecho en el curso React de Coderhouse
 
+![Animation](https://user-images.githubusercontent.com/69865928/117206241-fc20bb00-adc8-11eb-8f27-acd4d65b36e5.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
