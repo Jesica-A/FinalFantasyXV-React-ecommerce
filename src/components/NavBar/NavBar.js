@@ -1,25 +1,27 @@
 import React from 'react';
-import './NavBar.css';
+import './NavBar.scss';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import logo from '../../assets/img/ffxv-logo.png';
 import CartWidget from '../CartWidget/CartWidget';
-import { Link } from 'react-router-dom';
 
-function NavBar () {
-    return (
-        <header>
-            <nav>
-                <ul className='productos'>
-                    <h1 className="navbar-logo"><Link to='/home'>FFXV</Link></h1>
-                    <ul className='nav-menu'>
-                        <li><Link to='/historia'>Historia</Link></li>
-                        <li><Link to='/juego'>Juego</Link></li>
-                        <li><Link to='/'>Productos</Link></li>
-                        <li><Link to='/contacto'>Contacto</Link></li>
-                    </ul>
-                    <li><CartWidget /></li>
-                </ul>
-            </nav>
-        </header>
-    )
+
+const NavBar = () => {
+   return (
+      <Navbar expand="lg">
+         <Navbar.Brand href="/">
+            <img src={logo} alt="logo" />
+         </Navbar.Brand>
+         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+         <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+               <Nav.Link href="/">Inicio</Nav.Link>
+               <Nav.Link href="/">Productos</Nav.Link>
+               <Nav.Link href="/">Contacto</Nav.Link>
+               <CartWidget/>
+            </Nav>
+         </Navbar.Collapse>
+      </Navbar>
+   );
 }
-
 export default NavBar;

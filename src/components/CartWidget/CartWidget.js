@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './CartWidget.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons';
-import '../NavBar/NavBar.css';
-import { Link } from 'react-router-dom';
 
-function cart () {
-    return <li><Link to='/cart'><FontAwesomeIcon icon={faShoppingCart} /></Link></li>
+const CartWidget = () => {
+   return (
+      <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>
+      );
 }
 
-export default cart
+export default CartWidget;

@@ -1,9 +1,13 @@
 import React from 'react';
-import Items from '../Items/Item';
+import Item from '../Item/Item';
 
-export default function itemList ({items}) {
-    let itemsForMap = items;
-return itemsForMap.map((item) => (
-    <Items id = {item.id} titulo = {item.title} precio = {item.price} imagen = {item.pictureUrl} />)
-    );
+const ItemList = ({products}) => {
+   return (
+    <div className="row">
+        {products.map(p =>(
+            <Item key={p.id} product={p}/>
+        ))}
+    </div>
+   );
 }
+export default ItemList;

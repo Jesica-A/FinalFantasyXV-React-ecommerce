@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
-import './ItemCount.css';
-import '../ItemListContainer/ItemListContainer';
+import React, { useState } from "react";
+import './ItemCount.scss';
 
-    function Contador ({stock, initial, onAdd}) {
+const ItemCount = ({min, max, onAdd}) => {
+  const [counter, SetCounter] = useState(1);
 
-        const [cantidad, setCantidad] = useState(initial);
-
-        function aumentar () {
-            return setCantidad(cantidad + 1);
-        }
-
-        function disminuir () {
-            return setCantidad(cantidad - 1);
-        }
-
-        return <div className='divItemCount'>
-                    <div className='divButtons'>
-                        <button className='buttons' disabled={cantidad === 0 ? true : false} onClick={disminuir}>-</button>
-                        <p className='pCantidad'>{cantidad}</p>
-                        <button className='buttons' disabled={cantidad === stock ? true : false} onClick={aumentar}>+</button>
-                    </div>
-                    <button className='addToCart' disabled={cantidad === 0 || stock === 0 ? true : false} onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
-                    <p>Stock disponible: {stock}</p>
-                </div>
-    }
-
-export default Contador
+  const more = () => {
+      let increase = counter + 1; 
+      if(counter < max) {
+        SetCounter(increase);
+        onAdd(increase);
+      } 
+  };
+  
+  const less = () => {
+      let decrease = counter - 1;
+      if(counter > min) {
+        SetCounter(decrease);
+        onAdd(decrease);
+      }
+  };
+  
+   return (
+      <div className="cantidad">
+        <a className="less" onClick={less}> - </a>
+        <input type="number" value={counter} />
+        <a className="more" onClick={more}> + </a>
+      </div>
+   );
+}
+export default ItemCount;

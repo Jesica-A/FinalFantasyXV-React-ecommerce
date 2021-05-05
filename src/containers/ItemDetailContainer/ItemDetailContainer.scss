@@ -1,0 +1,33 @@
+.products.single {
+  img {
+    max-width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    display: block;
+  }
+  .item-title {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+  .btn {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0.5em;
+    padding: 0.4em 1.5em;
+    margin-top: 0.5em;
+    width: fit-content;
+    align-self: center;
+    background: transparent;
+    box-shadow: inset 0 0 8px rgb(41, 89, 179);
+    &:hover {
+      background: rgba(15, 15, 19, 0.925);
+      color: #5fafca !important;
+    }
+  }
+  .statusbar {
+    a {
+      color: black;
+    }
+  }
+}

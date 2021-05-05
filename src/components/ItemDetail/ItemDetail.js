@@ -1,21 +1,28 @@
-import React from 'react';
-import ItemCount from '../itemCount/ItemCount';
-import './ItemDetail.css';
+import React, { useState } from "react";
+import ItemCount from '../Itemcount/ItemCount';
 
-function itemDetail ({item}) {
-    function onAdd (cantidad) {
-        alert ('Agregaste ' + cantidad + ' al carrito');
-        }
-    return <div className='item-div'>
-                    <ul>
-                        <li>{ item.title }</li>
-                        <li>${ item.price }</li>
-                        <img src={ item.imagen } class="image-item"></img>
-                        <li>{item.description}</li>
-                        <li>ID:{ item.id }</li>
-                    </ul>
-                    <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-    </div>
-}
+const ItemDetail = ({product}) => {
+    const [quantity, setQuantity] = useState(1);
 
-export default itemDetail; 
+    const itemQuantity = (value) => {
+        setQuantity(value);
+    }
+
+    return (
+        <div className="row">
+            <div className="col-12 col-md-6">
+                <img src={product.img} alt={product.name} />
+            </div>
+            <div className="col-12 col-md-6">
+                <h1 className="item-title">{product.name}</h1>
+                <p>{product.description1}</p>
+                <p>{product.description2}</p>
+                <p>{product.description3}</p>
+                <p>${product.price}</p>
+                <ItemCount min={1} max={5} onAdd={itemQuantity} />
+                <a className="btn">Comprar {quantity}</a>
+            </div>
+        </div>
+    );
+ }
+export default ItemDetail;
