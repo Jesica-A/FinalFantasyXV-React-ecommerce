@@ -23,7 +23,8 @@ const products = [
       description2: 'Unico color disponible',
       description3: 'Talles: del S al XXL',
       img: rNoctis,
-      price: 1500
+      price: 1500,
+      category: 'remera'
    },
    {
       id: '2',
@@ -32,7 +33,8 @@ const products = [
       description2: 'Unico color disponible',
       description3: 'Talles: del S al XXL',
       img: Pocket_Ignis,
-      price: 1000
+      price: 1000,
+      category: 'remera'
    },
    {
       id: '3',
@@ -41,7 +43,8 @@ const products = [
       description2: 'Colores disponibles: Blanco, Negro',
       description3: 'Talles: del S al XXL',
       img: Complete_FFXV,
-      price: 1300
+      price: 1300,
+      category: 'remera'
    },
    {
       id: '4',
@@ -50,7 +53,8 @@ const products = [
       description2: 'Colores disponibles: Negro, Rosa, Blanco, Gris',
       description3: 'Tamaño: Adulto y Niño',
       img: Barbijo_Chocobos,
-      price: 350
+      price: 350,
+      category: 'accesorio'
    },
    {
       id: '5',
@@ -59,7 +63,8 @@ const products = [
       description2: 'Colores disponibles: Negro, Rosa, Blanco',
       description3: 'Tamaño: 22cm', 
       img: Botella_Carbuncle,
-      price: 600
+      price: 600,
+      category: 'accesorio'
    },
    {
       id: '6',
@@ -68,7 +73,8 @@ const products = [
       description2: 'Colores disponibles: Blanco, Negro',
       description3: 'Tamaño: 20cm x 15cm',
       img: Cartuchera_FFXV,
-      price: 500
+      price: 500,
+      category: 'accesorio'
    },
    {
       id: '7',
@@ -77,7 +83,8 @@ const products = [
       description2: 'Unico color disponible',
       description3: 'Tamaño: 40x60cm',
       img: Poster_Aranea,
-      price: 800
+      price: 800,
+      category: 'poster'
    },
    {
       id: '8',
@@ -86,7 +93,8 @@ const products = [
       description2: 'Unico color disponible',
       description3: 'Tamaño: 40x60cm',
       img: Poster_Regis_y_Noctis,
-      price: 900
+      price: 900,
+      category: 'poster'
    },
    {
       id: '9',
@@ -95,7 +103,8 @@ const products = [
       description2: 'Unico color disponible',
       description3: 'Tamaño: 40x60cm',
       img: Poster_Ardyn,
-      price: 900
+      price: 900,
+      category: 'poster'
    },
    {
       id: '10',
@@ -104,7 +113,8 @@ const products = [
       description2: 'Material: Polo Vinilo Cloruro (PVC)',
       description3: 'Tamaño: 15cm',
       img: Lunafreya_Nox_Fleuret,
-      price: 3800
+      price: 3800,
+      category: 'figura'
    },
    {
       id: '11',
@@ -113,15 +123,17 @@ const products = [
       description2: 'Material: Polo Vinilo Cloruro (PVC)',
       description3: 'Tamaño: 15cm',
       img: Gladiolus_Amicitia,
-      price: 3500
+      price: 3500,
+      category: 'figura'
    },{
       id: '12',
-      name: 'Prompto_Argentum',
+      name: 'Prompto Argentum',
       description1: 'Figura coleccionable de Gladiolus',
       description2: 'Material: Polo Vinilo Cloruro (PVC)',
       description3: 'Tamaño: 15cm',
       img: Prompto_Argentum,
-      price: 3500
+      price: 3500,
+      category: 'figura'
    },
  ];
  
