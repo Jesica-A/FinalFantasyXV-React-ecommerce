@@ -1,6 +1,6 @@
 Proyecto hecho en el curso React de Coderhouse
 
-![Animation1-min](https://user-images.githubusercontent.com/69865928/117381741-28186b00-aeb3-11eb-95e5-c30c3b4dca13.gif)
+![Animation] (https://github.com/Jesica-A/FinalFantasyXV-React-ecommerce/blob/main/src/assets/img/Animation.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
