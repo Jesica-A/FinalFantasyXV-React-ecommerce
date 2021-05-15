@@ -5,9 +5,12 @@ import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailCont
 import CategoryDetailContainer from './components/Category/CategoryDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Cart from './components/Cart/Cart';
+import { CartProvider } from './context/CartContext';
+
 
 function App() {
   return (
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -25,6 +28,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+    </CartProvider>
   );
 }
 

@@ -1,0 +1,49 @@
+.cart {
+  h2 {
+    margin: 10px 0;
+    text-align: center;
+  }
+  p {
+    font-size: 15px;
+  }
+  .titulo {
+    p {
+      font-weight: 600;
+    }
+  }
+  button {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    img {
+      width: 30px;
+      height: auto !important;
+      margin: 0 !important;
+    }
+  }
+
+  form {
+    input,
+    input:focus {
+      box-shadow: none;
+      margin: 10px 0;
+      width: 100%;
+      padding: 5px;
+      &::placeholder {
+        color: black;
+        font-style: italic;
+      }
+    }
+    button {
+      border-radius: 0;
+      box-shadow: none;
+      padding: 5px 10px;
+      min-width: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+    .error {
+      color: red;
+    }
+  }
+}
