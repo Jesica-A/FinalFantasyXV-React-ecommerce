@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import useCartContext from '../../context/CartContext';
 import deleteIcon from '../../assets/img/delete.png';
 import './Cart.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAngleDoubleLeft} from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
     const { cartItems, deleteItem, totalPrice } = useCartContext();
@@ -77,7 +79,7 @@ const Cart = () => {
             
             <div className="statusbar">
                <Link to={`/`}>
-                  <div className="left">Volver a productos</div>
+               <div className="left"><FontAwesomeIcon icon={faAngleDoubleLeft} />Volver a productos</div>
                </Link>
                <div className="right">&nbsp;</div>
             </div>

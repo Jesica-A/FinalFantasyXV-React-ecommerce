@@ -9,13 +9,14 @@ import CartWidget from '../CartWidget/CartWidget';
 const NavBar = () => {
    return (
       <Navbar expand="lg">
-         <Navbar.Brand href="/">
-            <img src={logo} alt="logo" />
+         <Navbar.Brand>
+            <Link to="/">
+               <img src={logo} alt="logo" />
+            </Link>
          </Navbar.Brand>
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-            <Nav.Link href="/">Inicio</Nav.Link>
                <NavDropdown title="Productos" id="basic-nav-dropdown">
                   <Link to={'/category/remera'}>
                         <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
@@ -30,7 +31,7 @@ const NavBar = () => {
                         <NavDropdown.Item href="#action/3.4">Figuras</NavDropdown.Item>
                   </Link> 
                </NavDropdown>
-               <Nav.Link href="/">Contacto</Nav.Link>
+               <Nav.Link to= {`/`}>Contacto</Nav.Link>
                <CartWidget/>
             </Nav>
          </Navbar.Collapse>
