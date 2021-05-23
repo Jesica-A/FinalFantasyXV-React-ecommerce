@@ -23,7 +23,7 @@ const ItemCount = ({min, max, onAdd}) => {
    return (
       <div className="cantidad">
         <a className="less" onClick={less}> - </a>
-        <input type="number" value={counter} />
+        <input type="number" onChange={()=>{}} value={counter} />
         <a className="more" onClick={more}> + </a>
       </div>
    );
