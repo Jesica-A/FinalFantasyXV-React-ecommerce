@@ -5,36 +5,6 @@ import '../../components/Itemcount/ItemCount';
 import { getFirestore } from '../../firebase'
 import ItemList from '../../components/ItemList/ItemList';
 
-/*
-const Home = ({greeting}) => {
-   //const [products, setProducts] = useState();
-
-   const [products, setProducts]=useState([]);
-   const [loading, setLoading] = useState(false);
-   useEffect(() =>{
-      const db = getFirestore();
-      const productCollection = db.collection("products");
-
-      productCollection.get().then((querySnapShot) => {
-         querySnapShot.size === 0 ? console.log("No hay items") : console.log(`Hay ${querySnapShot.size} items`)
-         const documentos = querySnapShot.docs.map((doc) => {
-            console.log(doc)
-            return {
-               id: doc.id,
-               ...doc.data()
-            }
-         });
-         setProducts(documentos)
-      })
-      .catch((err) => console.log("Ocurrio un error", err))
-      .finally(()=>setLoading(false))
-   }, []);
-
-   useEffect(()=> {
-      products.lenght && console.log(products)
-   }, [products])
-
-*/
 
 const Home = ({greeting}) => {
    const [products, setProducts] = useState([]);
@@ -43,20 +13,6 @@ const Home = ({greeting}) => {
    useEffect(() => {
       const db = getFirestore()
       const productCollection = db.collection("products")
-
-
-      /*const item = productCollection.doc(itemId)
-
-      item.get().then((doc)=>{
-         if (!doc.exists) {
-             console.log("Item no existe")
-             return;
-         }  
-         setProducts({ id: doc.id, ...doc.data() });
-         console.log(products)
-     })
-     .catch((err)=>{console.log("error:", err)})            
- }, [])*/
 
       productCollection.get().then((response) => {
           const aux = response.docs.map(element => {
