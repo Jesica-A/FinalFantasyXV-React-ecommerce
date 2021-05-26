@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import {useParams } from 'react-router-dom';
 import './Home.scss';
 import '../../components/Itemcount/ItemCount';
 import { getFirestore } from '../../firebase'
 import ItemList from '../../components/ItemList/ItemList';
+
 /*
 const Home = ({greeting}) => {
    //const [products, setProducts] = useState();
@@ -35,22 +37,35 @@ const Home = ({greeting}) => {
 */
 
 const Home = ({greeting}) => {
-   const [products, setProducts] = useState();
+   const [products, setProducts] = useState([]);
+   const {id} = useParams()
 
-   useEffect(() =>{
-      const db = getFirestore();
-      const productCollection = db.collection("products");
+   useEffect(() => {
+      const db = getFirestore()
+      const productCollection = db.collection("products")
+
+
+      /*const item = productCollection.doc(itemId)
+
+      item.get().then((doc)=>{
+         if (!doc.exists) {
+             console.log("Item no existe")
+             return;
+         }  
+         setProducts({ id: doc.id, ...doc.data() });
+         console.log(products)
+     })
+     .catch((err)=>{console.log("error:", err)})            
+ }, [])*/
+
       productCollection.get().then((response) => {
           const aux = response.docs.map(element => {
-            return {
-               id: element.id,
-               ...element.data()
-            }
+            return element.data();
           })
           setProducts(aux);
       });
-  }, []);
-
+  }, [id]);
+   
    return (
       <div className="container">
          <div className="mainTitle_container">

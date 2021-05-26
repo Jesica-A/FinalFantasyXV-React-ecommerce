@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
          <div className="container">
             <div className="products single">
                <div className="container-inner">
-                  {productId ? <ItemDetail product={productId} /> : 'Cargando...'}           
+                  <ItemDetail product={productId} />           
                </div>
                <div className="statusbar">
                   <Link to={`/`}>

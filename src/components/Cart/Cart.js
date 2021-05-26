@@ -33,24 +33,24 @@ const Cart = () => {
                     </div>
 
                     {Object.keys(cartItems).length > 0 ?
-                    cartItems.map((item) => (
-                        <div key={item.id} className="row">
-                            <div className="col-12 col-md-4">
-                                <p>{item.name} (x{item.quantity})</p>
+                        cartItems.map((item) => (
+                            <div key={item.id} className="row">
+                                <div className="col-12 col-md-4">
+                                    <p>{item.name} (x{item.quantity})</p>
+                                </div>
+                                <div className="col-12 col-md-3">
+                                    <p>${item.price}</p>
+                                </div>
+                                <div className="col-12 col-md-3">
+                                    <p>${item.price * item.quantity}</p>
+                                </div>
+                                <div className="col-12 col-md-2">
+                                    <button onClick={() => {deleteItem(item.id)}}>
+                                        <img src={deleteIcon} alt="Delete Icon" />
+                                    </button>
+                                </div>
                             </div>
-                            <div className="col-12 col-md-3">
-                                <p>${item.price}</p>
-                            </div>
-                            <div className="col-12 col-md-3">
-                                <p>${item.price * item.quantity}</p>
-                            </div>
-                            <div className="col-12 col-md-2">
-                                <button onClick={() => {deleteItem(item.id)}}>
-                                    <img src={deleteIcon} alt="Delete Icon" />
-                                </button>
-                            </div>
-                        </div>
-                    ))
+                        ))
                     : 'No hay productos en el carrito :('}           
                     <p className="mt-2"><b>Total: ${totalPrice() ? totalPrice() : 0}</b></p>
                 </div>
