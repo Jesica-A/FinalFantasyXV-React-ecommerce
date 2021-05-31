@@ -8,7 +8,6 @@ import ItemList from '../../components/ItemList/ItemList';
 
 const Home = ({greeting}) => {
    const [products, setProducts] = useState([]);
-   const {id} = useParams()
 
    useEffect(() => {
       const db = getFirestore()
@@ -20,7 +19,7 @@ const Home = ({greeting}) => {
           })
           setProducts(aux);
       });
-  }, [id]);
+  }, []);
    
    return (
       <div className="container">

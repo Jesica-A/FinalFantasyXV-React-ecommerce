@@ -10,7 +10,9 @@ import {faAngleDoubleLeft} from '@fortawesome/free-solid-svg-icons';
 
 const ItemDetailContainer = () => {
    const [productId, setProductId] = useState({});
+   const [noProduct, setNoProduct] = useState();
    const {id} = useParams();
+
    useEffect(() =>{
       const db = getFirestore();
       const productCollection = db.collection("products");
@@ -19,7 +21,11 @@ const ItemDetailContainer = () => {
             const aux = response.docs.map(element => {
                return element.data();
             });
-            setProductId(aux[0]);
+            if(aux[0]){
+               setProductId(aux[0]);
+            }else{
+               setNoProduct('Inexistente');
+            }
          });
       }, [id]);
 
@@ -28,7 +34,7 @@ const ItemDetailContainer = () => {
          <div className="container">
             <div className="products single">
                <div className="container-inner">
-                  <ItemDetail product={productId} />           
+                  {productId ? <ItemDetail product={productId} /> : noProduct ? <p>Producto inexistente :(</p> : 'Cargando...'}            
                </div>
                <div className="statusbar">
                   <Link to={`/`}>
