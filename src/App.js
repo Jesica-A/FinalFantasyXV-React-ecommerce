@@ -1,12 +1,11 @@
-import './App.css';
-import Home from './containers/home/Home';
-import NavBar from './components/Navbar/NavBar';
-import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Cart from './components/Cart/Cart';
-import { CartProvider } from './context/CartContext';
-import ProductsContainer from './containers/productsContainer/productsContainer';
-import Checkout from './components/checkout/Checkout';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { NavBar } from './Components/Navbar/Navbar';
+import { CartProvider } from './Context/cartContext';
+import HomeContainer from './Containers/HomeContainer';
+import ItemDetailContainer from './Containers/ItemDetailContainer';
+import CartContainer from './Containers/CartContainer';
+import './App.css'
 
 function App() {
   return (
@@ -14,25 +13,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route exact path="/">
-            <Home greeting="Tienda de Final Fantasy XV" />
-          </Route>
-          <Route exact path="/products/:category">
-            <ProductsContainer />
-          </Route>
-          <Route exact path="/product/:id">
-            <ItemDetailContainer />
-          </Route>
-          <Route exact path="/cart/">
-            <Cart />
-          </Route>
-          <Route exact path="/checkout/">
-            <Checkout />
-          </Route>
+          <Route exact path='/' render={() => <HomeContainer />} />
+          <Route path='/categories/:categoryId' render={() => <HomeContainer />} />
+          <Route path='/item/:productId' render={() => <ItemDetailContainer />} />
+          <Route exact path='/cart' render={() => <CartContainer />} />
         </Switch>
       </BrowserRouter>
     </CartProvider>
-  );
+  )
 }
-
 export default App;

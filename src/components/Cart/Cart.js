@@ -1,93 +1,84 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import useCartContext from '../../context/CartContext';
-import './Cart.scss';
-import deleteIcon from '../../assets/img/delete.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAngleDoubleLeft} from '@fortawesome/free-solid-svg-icons';
+import React, { useContext } from 'react';
+import { CartContext } from '../../Context/cartContext'
+import CartForm from './CartForm';
+import deleteIcon from '../../assets/delete.png';
+import './cart.scss'
 
-const Cart = () => {
-    const { cartItems, deleteItem, totalPrice, buyItems, setLastname, setName, setEmail, setConfirmationEmail, error, orderId } = useCartContext();
-    const history = useHistory();
-    if(orderId) {
-        history.push("/checkout");
+function Cart({ createOrder, orderId }) {
+    const [cartProducts, setCartProducts, totalCost, deleteItem] = useContext(CartContext);
+    if (orderId) {
+        return (
+            <div className="container cart">
+                <div className="products single">
+                    <div className="container-inner">
+                        <h3>¡Gracias por tu compra! </h3>
+                        <p>
+                            El código de tu compra es: {orderId}
+                        </p>
+                        <hr />
+                        <p className="mb-0">
+                            Ya te estamos enviando un e-mail con la información de tu orden
+                        </p>
+                        <a href='/' className="btn" >Nueva compra</a>
+                    </div>
+                </div>
+            </div>
+        )
     }
-    
+
     return (
         <div className="container cart">
             <div className="products single">
-                <div className="title">
-                    <h1>Carrito</h1>
-                </div>
-            
                 <div className="container-inner">
-                <h2>Tu compra</h2>
-                    {Object.keys(cartItems).length > 0 ? 
-                    <div>
-                        <div className="d-none d-md-flex row titulo">
-                            <div className="col-12 col-md-4">
-                                <p>Producto(s)</p>
-                            </div>
-                            <div className="col-12 col-md-3">
-                                <p>Precio por unidad</p>
-                            </div>
-                            <div className="col-12 col-md-3">
-                                <p>Subtotal</p>
-                            </div>
-                            <div className="col-12 col-md-2">
-                                <p>Eliminar item</p>
-                            </div>
-                        </div>
-                        {cartItems.map((item) => (
-                            <div key={item.id} className="row">
+                    {cartProducts.length ?
+                        <div>
+                            <h2>Resumen de tu compra:</h2>
+                            <div className="d-none d-md-flex row titulo">
                                 <div className="col-12 col-md-4">
-                                    <p>{item.name} (x{item.quantity})</p>
+                                    <p>Producto(s)</p>
                                 </div>
                                 <div className="col-12 col-md-3">
-                                    <p>${item.price}</p>
+                                    <p>Precio por unidad</p>
                                 </div>
                                 <div className="col-12 col-md-3">
-                                    <p>${item.price * item.quantity}</p>
+                                    <p>Subtotal</p>
                                 </div>
                                 <div className="col-12 col-md-2">
-                                    <button onClick={() => {deleteItem(item.id)}}>
-                                        <img src={deleteIcon} alt="Delete Icon" />
-                                    </button>
+                                    <p>Eliminar item</p>
                                 </div>
                             </div>
-                        ))}
-                        <p className="mt-2"><b>Total: ${totalPrice() ? totalPrice() : 0}</b></p>
-                        <h2>Tus datos</h2>
-                        <form>
-                            <div className="row">
-                                <div className="col-6">
-                                    <input type="text" className="form-control" placeholder="Nombre" onChange={event => setName(event.target.value)} />
+                            
+                            {cartProducts.map((product) => (
+                                <div key={product.id} className="row">
+                                    <div className="col-12 col-md-4">
+                                        <p>{product.name} (x{product.count})</p>
+                                    </div>
+                                    <div className="col-12 col-md-3">
+                                        <p>${product.price}</p>
+                                    </div>
+                                    <div className="col-12 col-md-3">
+                                        <p>${product.price * product.count}</p>
+                                    </div>
+                                    <div className="col-12 col-md-2">
+                                        <button onClick={() => {deleteItem(product.id)}}>
+                                            <img src={deleteIcon} alt="Delete Icon" />
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="col-6">
-                                    <input type="text" className="form-control" placeholder="Apellido" onChange={event => setLastname(event.target.value)} />
-                                </div>
-                                <div className="col-6">
-                                    <input type="text" className="form-control" placeholder="E-mail" onChange={event => setEmail(event.target.value)}/>
-                                </div>
-                                <div className="col-6">
-                                    <input type="text" className="form-control" placeholder="Confirmar e-mail" onChange={event => setConfirmationEmail(event.target.value)}/>
-                                </div>
-                                <button className = "btn" onClick={buyItems}>Realizar compra</button>
-                            </div>
-                            <p className="error">{error ? error : ''}</p>
-                        </form>   
-                    </div>       
-                    : 'No hay productos en el carrito :('}
-                </div>
-            
-                <div className="statusbar">
-                    <Link to={`/`}>
-                        <div className="left"><FontAwesomeIcon icon={faAngleDoubleLeft} />Volver a productos</div>
-                    </Link>
-                    <div className="right">&nbsp;</div>
+                            ))}
+
+                            
+                            <p className="mt-2"><b>Total: ${totalCost() ? totalCost() : 0}</b></p>
+                        </div>
+                        :
+                        <h2>Tu carrito está vacío</h2>
+                    }
                 </div>
             </div>
+
+            <CartForm createOrder={createOrder} />
         </div>
-    )
+    );
 }
+
 export default Cart;
