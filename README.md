@@ -4,6 +4,20 @@ Proyecto hecho en el curso React de Coderhouse
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Sobre el proyecto
+
+- Este proyecto es un ecommerce inspirado en el juego Final Fantasy XV
+- Podrás simular la compra de un producto de tu interes y quitarlo desde el carrito de compra en caso de querer deshacer la compra.
+- No es necesario que ingreses datos reales en el formulario final de Compra del producto
+
+## Punto de Partida
+
+1. Clona este repositorio en tu computadora
+2. Abrir el proyecto en algun editor de texto(yo usé Visual Studio Code)
+3. Abrir la terminal en el proyecto, escribir 'npm i' y dar enter (esto instalará todas las librerias usadas en el proyecto)
+4. Terminada la instalacion anterior, escribí en la misma terminal 'npm start'
+5. Se abrirá el proyecto en una pestraña nueva en tu navegador predeterminado
+
 ## Available Scripts
 
 In the project directory, you can run:
