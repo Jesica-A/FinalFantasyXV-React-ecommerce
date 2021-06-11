@@ -1,5 +1,5 @@
 import React from 'react';
-import AddToCart from '../Components/AddToCart/AddToCart'
+import AddToCart from '../components/addToCart/AddToCart'
 
 const AddToCartContainer = (qtyCounter) => {
     return (

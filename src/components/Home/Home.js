@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.scss'
-import ItemListContainer from '../../Containers/ItemListContainer';
-import Item from '../Item/Item';
+import ItemListContainer from '../../containers/ItemListContainer';
+import Item from '../item/Item';
 
 export default function Home() {
 

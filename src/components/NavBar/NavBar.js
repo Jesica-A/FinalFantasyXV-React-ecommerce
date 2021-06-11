@@ -1,6 +1,6 @@
 import React from 'react';
-import '../CartIcon/CartIcon';
-import { CartIcon } from '../CartIcon/CartIcon'; 
+import '../cartIcon/CartIcon';
+import { CartIcon } from '../cartIcon/CartIcon'; 
 import { Link } from 'react-router-dom'
 import { Nav, Navbar} from 'react-bootstrap';
 import CategoriesMenu from "./CategoriesMenu";

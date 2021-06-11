@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemCountContainer from '../../Containers/ItemCountContainer'
-import AddToCart from '../AddToCart/AddToCart';
+import ItemCountContainer from '../../containers/ItemCountContainer'
+import AddToCart from '../addToCart/AddToCart';
 import './ItemDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faAngleDoubleLeft} from '@fortawesome/free-solid-svg-icons';

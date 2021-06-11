@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import ItemDetail from '../Components/ItemDetail/ItemDetail'
+import ItemDetail from '../components/itemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import { getFirestore } from './../firebase/index'
 

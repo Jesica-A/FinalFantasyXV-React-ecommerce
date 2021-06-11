@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../../Context/cartContext'
+import { CartContext } from '../../context/cartContext'
 import CartForm from './CartForm';
 import deleteIcon from '../../assets/delete.png';
 import './cart.scss'

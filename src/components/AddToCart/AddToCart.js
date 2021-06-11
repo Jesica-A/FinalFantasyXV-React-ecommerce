@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import {Link} from 'react-router-dom';
-import { CartContext } from '../../Context/cartContext'
+import { CartContext } from '../../context/cartContext'
 
 function AddToCart({ qtyCounter, product }) {
     const [cartProducts, setCartProducts] = useContext(CartContext);

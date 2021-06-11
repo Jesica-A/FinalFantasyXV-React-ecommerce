@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import Cart from '../Components/Cart/Cart'
+import Cart from '../components/cart/Cart'
 import 'firebase/firestore'
 import firebase from 'firebase/app';
 import '@firebase/auth'
 import { getFirestore } from '../firebase'
-import { CartContext } from "../Context/cartContext";
+import { CartContext } from "../context/cartContext";
 
 const CartContainer = () => {
     const [cartProducts, setCartProducts, totalCost] = useContext(CartContext);

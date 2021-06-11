@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ItemCount from '../Components/ItemCount/ItemCount'
+import ItemCount from '../components/itemCount/ItemCount'
 
 export default function ItemCountContainer({ min, max, handleClick}) {
     const [counter, setCounter] = useState(0);

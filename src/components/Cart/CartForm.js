@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Form} from 'react-bootstrap';
+import { CartContext } from '../../context/cartContext'
 import './cart.scss'
 
 function CartForm({createOrder}) {
@@ -33,26 +34,32 @@ function CartForm({createOrder}) {
         form.email === form.emailConfirmation
     )
 
+    const [cartProducts, setCartProducts] = useContext(CartContext);
     return (
         <div className="container cart">
             <div className="products single">
                 <div className="container-inner">
-                    <h2>Tus datos</h2>
-                    <Form.Group className="form-group">
-                        <Form.Control type="text" placeholder="Nombre" name="firstName" onChange={handleChange} />
-                        <br />
-                        <Form.Control type="text" placeholder="Apellido" name="lastName" onChange={handleChange} />
-                        <br />
-                        <Form.Control type="text" placeholder="Teléfono de contacto" name="phone" onChange={handleChange} />
-                        <br />
-                        <Form.Control type="text" placeholder="E-mail" name="email" onChange={handleChange} />
-                        <br />
-                        <Form.Control type="text" placeholder="Confirmación de e-mail" name="emailConfirmation" onChange={handleChange} />
-                        <br></br>
-                        <button className="btn" type="submit" disabled={disabled} onClick={handleOnclick}>
-                            Confirmar Compra
-                        </button>
-                    </Form.Group>
+                    {cartProducts.length ?
+                        <div>
+                            <h2>Tus datos</h2>
+                            <Form.Group className="form-group">
+                                <Form.Control type="text" placeholder="Nombre" name="firstName" onChange={handleChange} />
+                                <br />
+                                <Form.Control type="text" placeholder="Apellido" name="lastName" onChange={handleChange} />
+                                <br />
+                                <Form.Control type="text" placeholder="Teléfono de contacto" name="phone" onChange={handleChange} />
+                                <br />
+                                <Form.Control type="text" placeholder="E-mail" name="email" onChange={handleChange} />
+                                <br />
+                                <Form.Control type="text" placeholder="Confirmación de e-mail" name="emailConfirmation" onChange={handleChange} />
+                                <br></br>
+                                <button className="btn" type="submit" disabled={disabled} onClick={handleOnclick}>
+                                    Confirmar Compra
+                                </button>
+                            </Form.Group>
+                        </div>
+                        : "Podrás realizar tu compra una vez que agregues al carrito al menos un item!"
+                    }
                 </div>
             </div>
         </div>

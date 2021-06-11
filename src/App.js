@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { NavBar } from './Components/Navbar/Navbar';
-import { CartProvider } from './Context/cartContext';
-import HomeContainer from './Containers/HomeContainer';
-import ItemDetailContainer from './Containers/ItemDetailContainer';
-import CartContainer from './Containers/CartContainer';
+import { NavBar } from './components/navbar/Navbar';
+import { CartProvider } from './context/cartContext';
+import HomeContainer from './containers/HomeContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer';
+import CartContainer from './containers/CartContainer';
 import './App.css'
 
 function App() {
